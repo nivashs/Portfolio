@@ -39,25 +39,25 @@ const about = () => {
         <title>Nivash | About Page</title>
         <meta name="description" content="nivash" />
       </Head>
-      <main className="flex w-full flex-col items-center justify-center"></main>
+      <main className="flex w-full flex-col items-center justify-center dark:text-light"></main>
       <Layout className="pt-16">
         <AnimatedText text="Dream Build Achieve." className="mb-16" />
         <div className="grid w-full grid-cols-8 gap-16">
           <div className="col-span-3 flex flex-col items-start justify-start">
-            <h2 className="mb-4 text-lg font-bold uppercase text-dark/75">
+            <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light">
               Biography
             </h2>
-            <p className="font-medium">
+            <p className="font-medium dark:text-light">
               Hi, I'm Nivash, a Full Stack Developer adept in developing Angular
               and React based web applications, strong in front-end and back-end
               technologies. I have 3 years of professional development
               experience in London Stock Exchange Group
             </p>
-            <p className="my-4 font-medium">
+            <p className="my-4 font-medium dark:text-light">
               I am always looking for new and innovative ways to bring my
               clients' visions to life.
             </p>
-            <p className="font-medium">
+            <p className="font-medium dark:text-light">
               With my strong interest, knowledge, skills and experience in
               Software Development, and my positive learning attitude and team
               spirit, I will bring a great fit to the position to bring in value
@@ -65,7 +65,7 @@ const about = () => {
             </p>
           </div>
 
-          <div className="col-span-3 relative w-[70%] rounded-2xl border-2 border-solid border-dark bg-light flex items-center justify-center p-4 ml-16">
+          <div className="col-span-3 relative w-[70%] rounded-2xl border-2 border-solid border-dark bg-light flex items-center justify-center p-4 ml-16 dark:text-light">
             <Image
               src={profilePic}
               alt="Nivash"
@@ -74,26 +74,26 @@ const about = () => {
           </div>
           <div className="col-span-2 flex flex-col items-end justify-between">
             <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-7xl font-bold">
+              <span className="inline-block text-7xl font-bold dark:text-light/75">
                 <AnimatedNumbers value={20} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-dark/75">
+              <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">
                 satisfied clients
               </h2>
             </div>
             <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-7xl font-bold">
+              <span className="inline-block text-7xl font-bold dark:text-light/75">
                 <AnimatedNumbers value={10} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-dark/75">
+              <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">
                 projects completed
               </h2>
             </div>
             <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-7xl font-bold">
+              <span className="inline-block text-7xl font-bold dark:text-light/75">
                 <AnimatedNumbers value={3} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-dark/75">
+              <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">
                 years of experience
               </h2>
             </div>
