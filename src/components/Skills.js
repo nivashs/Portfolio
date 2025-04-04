@@ -31,7 +31,9 @@ const SkillMeter = ({ level }) => {
         <div
           key={i}
           className={`h-4 w-8 rounded-full  ${
-            i < level ? "bg-dark" : "bg-gray-300"
+            i < level
+              ? "bg-dark dark:bg-light/75"
+              : "bg-gray-300 dark:bg-black/20"
           }`}
         ></div>
       ))}
@@ -40,12 +42,12 @@ const SkillMeter = ({ level }) => {
 };
 const SkillCard = ({ title, skills }) => {
   return (
-    <div className="p-8 border rounded-xl shadow-lg w-full max-w-2xl">
+    <div className="p-8 border rounded-xl shadow-lg w-full max-w-2xl dark:text-light/75">
       <h2 className="text-xl font-bold mb-6 text-center">{title}</h2>
       {skills.map((skill, index) => (
         <div
           key={index}
-          className="flex justify-between items-center p-4 border-b"
+          className="flex justify-between items-center p-4 border-b "
         >
           <span className="text-lg font-semibold">{skill.name}</span>
           <SkillMeter level={skill.level} />
@@ -68,7 +70,7 @@ const SkillSection = () => {
 const Skills = () => {
   return (
     <>
-      <h2 className="font-bold text-8xl mt-64 mb-16 w-full text-center">
+      <h2 className="font-bold text-8xl mt-64 mb-16 w-full text-center dark:text-light/75">
         Skills
       </h2>
       <SkillSection />

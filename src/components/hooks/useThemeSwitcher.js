@@ -5,7 +5,7 @@ const useThemeSwitcher = () => {
   //   const [mode, setMode] = useState(() =>
   //     window.matchMedia(preferDarkQuery).matches ? "dark" : "light"
   //   );
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);
@@ -38,7 +38,8 @@ const useThemeSwitcher = () => {
     if (mode === "dark") {
       window.localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
-    } else {
+    }
+    if (mode === "light") {
       window.localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
     }
