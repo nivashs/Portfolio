@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "./Logo";
+// import Logo from "./Logo";
 import {
   TwitterIcon,
   GithubIcon,
   LinkedInIcon,
   SunIcon,
   MoonIcon,
+  WhatsAppIcon,
 } from "./Icons";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
@@ -97,13 +98,13 @@ const NavBar = () => {
         </nav>
         <nav className="flex items-center justify center flex-wrap">
           <motion.a
-            href="https://twitter.com"
+            href="https://wa.me/917032234400"
             target={"_blank"}
             whileHover={{ y: -2, scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className="w-6 mr-3"
           >
-            <TwitterIcon />
+            <WhatsAppIcon />
           </motion.a>
           <motion.a
             href="https://github.com/nivashs"
@@ -168,15 +169,6 @@ const NavBar = () => {
           </nav>
           <nav className="flex items-center justify center flex-wrap mt-2">
             <motion.a
-              href="https://twitter.com"
-              target={"_blank"}
-              whileHover={{ y: -2, scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 mr-3 sm:mx-1"
-            >
-              <TwitterIcon />
-            </motion.a>
-            <motion.a
               href="https://github.com/nivashs"
               target={"_blank"}
               whileHover={{ y: -2, scale: 1.1 }}
@@ -210,9 +202,9 @@ const NavBar = () => {
         </motion.div>
       ) : null}
 
-      <div className="absolute left-[50%] transform translate-x-[-50%]">
+      {/* <div className="absolute left-[50%] transform translate-x-[-50%]">
         <Logo />
-      </div>
+      </div> */}
     </header>
   );
 };

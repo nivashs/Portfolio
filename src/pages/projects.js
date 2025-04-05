@@ -5,13 +5,22 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
+import project1 from "../../public/images/projects/reddit-memes.png";
+import project2 from "../../public/images/projects/ms-app.png";
 import { motion } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
-const FeaturedProject = ({ type, title, summary, img, link, github }) => {
+const FeaturedProject = ({
+  type,
+  title,
+  summary,
+  img,
+  link,
+  github,
+  techStack,
+}) => {
   return (
     <article
       className="w-full flex items-center justify-between relative rounded-br-2xl
@@ -68,8 +77,18 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
         >
           {summary}
         </p>
+        <div className="flex flex-wrap gap-2 my-2">
+          {techStack?.map((tech, index) => (
+            <span
+              key={index}
+              className="bg-dark text-light dark:bg-white dark:text-dark px-3 py-1 rounded-full text-sm font-medium"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
         <div className="mt-2 flex items-center">
-          <Link href={link} target="_blank" className="w-10">
+          <Link href={github} target="_blank" className="w-10">
             <GithubIcon />
           </Link>
           <Link
@@ -87,7 +106,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   );
 };
 
-const Project = ({ title, img, link, type, github }) => {
+const Project = ({ title, img, link, type, github, techStack }) => {
   return (
     <article
       className="w-full flex flex-col items-center justify-between
@@ -133,6 +152,17 @@ const Project = ({ title, img, link, type, github }) => {
             {title}
           </h2>
         </Link>
+        <div className="flex flex-wrap gap-2 my-2">
+          {techStack?.map((tech, index) => (
+            <span
+              key={index}
+              className="bg-dark text-light dark:bg-white dark:text-dark px-3 py-1 rounded-full text-sm font-medium"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
             href={link}
@@ -141,9 +171,9 @@ const Project = ({ title, img, link, type, github }) => {
           >
             Visit
           </Link>
-          <Link href={github} target="_blank" className="w-8 md:w-6">
+          {/* <Link href={github} target="_blank" className="w-8 md:w-6">
             <GithubIcon />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </article>
@@ -171,24 +201,28 @@ const projects = () => {
           >
             <div className="col-span-12">
               <FeaturedProject
-                title="asd"
-                summary="asd"
+                title="Reddit Memes Crawler"
+                summary="Web app that crawls, stores, and updates the top trending memes from Reddit's r/memes subreddit. 
+                Automatically generates report of memes every day and sends them via Telegram.
+                Memes are stored in a Supabase database and can be viewed sorted by upvotes, date, or number of comments."
                 img={project1}
-                link="/"
-                github="/"
+                link="https://reddit-memes-ui.vercel.app"
+                github="https://github.com/nivashs/reddit-memes-ui"
                 type="Featured Project"
+                techStack={["React.js", "Supabase", "FastAPI", "Telegram API"]}
               />
             </div>
             <div className="col-span-6 sm:col-span-12 ">
               <Project
-                title="asd"
-                img={project1}
-                link="/"
-                github="/"
+                title="MindStretcher Mobile App"
+                img={project2}
+                link="https://play.google.com/store/apps/details?id=com.mindstretcher.app&hl=en_IN"
+                github=""
                 type="Project"
+                techStack={["React Native", "Expo", "NestJS"]}
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
+            {/* <div className="col-span-6 sm:col-span-12">
               <Project
                 title="asd"
                 img={project1}
@@ -225,7 +259,7 @@ const projects = () => {
                 github="/"
                 type="Project"
               />
-            </div>
+            </div> */}
           </div>
         </Layout>
       </main>

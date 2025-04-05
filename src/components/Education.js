@@ -19,7 +19,7 @@ const Details = ({ type, time, place, info }) => {
         <h3 className="capitalize text-2xl font-bold sm:text-xl xs:text-lg">
           {type}
         </h3>
-        <span className="capitalize font-medium text-dark/75 xs:text-sm">
+        <span className="capitalize font-medium text-dark/75 xs:text-sm dark:text-light/50">
           {time} | {place}
         </span>
         <p className="font-medium w-full md:text-sm">{info}</p>
@@ -35,7 +35,7 @@ const Education = () => {
     offset: ["start end", "center start"],
   });
   return (
-    <div className="my-64 dark:text-light/75">
+    <div id="education-section" className="my-64 dark:text-light/75">
       <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
         Education
       </h2>
@@ -53,7 +53,7 @@ const Education = () => {
             info="Relevent courses included Data Structures and Algorithms, Software Engineering, Database Systems and Artificial Intelligence."
           />
           <Details
-            type="Bachelor in Electronics and Communication Engineering"
+            type="Bachelors in Electronics and Communication Engineering"
             time="2016-2020"
             place="Vellore Institute of Technology, Vellore"
             info="Relevent courses included Object Oriented Programming, Java Programming, Computer Communication, Computer Organization and Architectures, Statistics, Linear Algebra, Neural Networks."
