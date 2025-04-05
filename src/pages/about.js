@@ -54,7 +54,7 @@ const about = () => {
                 Biography
               </h2>
               <p className="font-medium dark:text-light">
-                Hi, I'm Nivash, a Full Stack Developer adept in developing
+                Hi, I&apos;m Nivash, a Full Stack Developer adept in developing
                 Angular and React based web applications, strong in front-end
                 and back-end technologies. I have more than 3 years of
                 professional development experience in London Stock Exchange
