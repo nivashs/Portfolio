@@ -5,6 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import project0 from "../../public/images/projects/tripster.png";
 import project1 from "../../public/images/projects/reddit-memes.png";
 import project2 from "../../public/images/projects/ms-app.png";
 import { motion } from "framer-motion";
@@ -88,15 +89,19 @@ const FeaturedProject = ({
           ))}
         </div>
         <div className="mt-2 flex items-center">
-          <Link href={github} target="_blank" className="w-10">
-            <GithubIcon />
-          </Link>
+          {github && (
+            <Link href={github} target="_blank" className="w-10">
+              <GithubIcon />
+            </Link>
+          )}
           <Link
             href={link}
             target="_blank"
-            className="ml-4 bg-dark text-light p-2 px-6 text-lg font-semibold
-            dark:bg-light dark:text-dark rounded-xl
-            sm:px-4 sm:text-base"
+            className={`${
+              github ? "ml-4" : ""
+            } bg-dark text-light p-2 px-6 text-lg font-semibold
+    dark:bg-light dark:text-dark rounded-xl
+    sm:px-4 sm:text-base`}
           >
             Visit Project
           </Link>
@@ -199,6 +204,30 @@ const projects = () => {
             className="grid w-full grid-cols-12 gap-24 gap-y-32
           xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0"
           >
+            <div className="col-span-12">
+              <FeaturedProject
+                title="Tripster"
+                summary="A travel planning web app for explorers with integrated google maps and AI-powered personalized itinerary generation.
+                Users can search for attractions, restaurants, and activities based on their preferences and location. 
+                Integrates interactive Google Maps for visualizing day-wise iternary plans on map and for exploring attractions."
+                img={project0}
+                link="https://youtu.be/MqxU95xBtk8"
+                github=""
+                type="Featured Project"
+                techStack={[
+                  "React.js",
+                  "Node.js",
+                  "Express.js",
+                  "GraphQL",
+                  "MongoDB",
+                  "Google Maps API",
+                  "OAuth 2.0",
+                  "OpenAI API",
+                  "AWS",
+                  "Docker",
+                ]}
+              />
+            </div>
             <div className="col-span-12">
               <FeaturedProject
                 title="Reddit Memes Crawler"
