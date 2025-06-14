@@ -67,7 +67,7 @@ const Experience = () => {
             position="Software Engineer Intern"
             company="MindStretcher Education Pvt Ltd"
             companyLink={"https://www.mindstretcher.com/"}
-            time="2024 May - 2023 Sep"
+            time="2024 May - 2024 Sep"
             address="Singapore"
             work={[
               "Developed and maintained MindStretcher mobile application using React Native Expo",
