@@ -1,9 +1,9 @@
-import React, { use } from "react";
+import React from "react";
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import LiIcon from "./LiIcon";
 
-const Details = ({ type, time, place, info }) => {
+const Details = ({ institution, degree, time, cgpa, coursework }) => {
   const ref = useRef(null);
   return (
     <li
@@ -17,12 +17,14 @@ const Details = ({ type, time, place, info }) => {
         transition={{ duration: 0.5, type: "spring" }}
       >
         <h3 className="capitalize text-2xl font-bold sm:text-xl xs:text-lg">
-          {type}
+          {institution}
         </h3>
         <span className="capitalize font-medium text-dark/75 xs:text-sm dark:text-light/50">
-          {time} | {place}
+          {degree} | {time} | CGPA: {cgpa}
         </span>
-        <p className="font-medium w-full md:text-sm">{info}</p>
+        <p className="font-medium w-full mt-2 md:text-sm">
+          <strong>Coursework:</strong> {coursework}
+        </p>
       </motion.div>
     </li>
   );
@@ -36,7 +38,7 @@ const Education = () => {
   });
   return (
     <div id="education-section" className="my-64 dark:text-light/75">
-      <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
+      <h2 className="font-bold text-5xl mb-32 w-full text-center md:text-4xl sm:text-3xl xs:text-2xl md:mb-16">
         Education
       </h2>
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
@@ -47,18 +49,28 @@ const Education = () => {
         ></motion.div>
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            type="Master of Computing"
-            time="2023-2025"
-            place="National University of Singapore"
-            info="Relevent courses included Data Structures and Algorithms, Software Engineering, Database Systems and Artificial Intelligence."
+            institution="National University of Singapore"
+            degree="Master of Computing, Computer Science"
+            time="August 2023 - January 2025"
+            cgpa="4.21/5.00"
+            coursework="Data Structures and Algorithms; Software Development Fundamentals (Python); Enterprise Systems Architecture Fundamentals; Artificial Intelligence; Data Analytics; Stream Processing; Big Data Systems for Data Science."
           />
           <Details
-            type="Bachelors in Electronics and Communication Engineering"
-            time="2016-2020"
-            place="Vellore Institute of Technology, Vellore"
-            info="Relevent courses included Object Oriented Programming, Java Programming, Computer Communication, Computer Organization and Architectures, Statistics, Linear Algebra, Neural Networks."
+            institution="Vellore Institute of Technology"
+            degree="BTech, Electronics and Communication Engineering"
+            time="July 2016 - September 2020"
+            cgpa="8.54/10.00"
+            coursework="Object-Oriented Programming; Java Programming; Computer Communication; Computer Organization and Architecture; Statistics; Linear Algebra; Neural Networks."
           />
         </ul>
+      </div>
+      <div className="w-[60%] mx-auto mt-24 rounded-2xl border border-solid border-dark p-8 shadow-lg dark:border-light md:w-[80%] sm:p-6">
+        <h3 className="text-2xl font-bold sm:text-xl">Research Publication</h3>
+        <p className="font-medium mt-3 md:text-sm">
+          Co-authored research on spectrally efficient frequency division
+          multiplexing, published in the International Journal of Innovative
+          Technology and Exploring Engineering.
+        </p>
       </div>
     </div>
   );

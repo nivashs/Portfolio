@@ -2,47 +2,25 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const DownArrow = () => {
-  // Track which section to scroll to next
   const [currentSection, setCurrentSection] = useState("skills");
 
-  // Handle scroll event to update current section
   useEffect(() => {
     const handleScroll = () => {
-      const skillsSection = document.querySelector("#skills-section");
-      const experienceSection = document.querySelector("#experience-section");
-
-      if (!skillsSection || !experienceSection) return;
-
-      const skillsPosition = skillsSection.getBoundingClientRect().top;
-      const experiencePosition = experienceSection.getBoundingClientRect().top;
       const threshold = window.innerHeight / 2;
+      const sectionIds = ["github", "skills", "experience", "education"];
 
-      // Reset to "skills" if user scrolls above it
-      if (skillsPosition > threshold) {
-        setCurrentSection("skills");
-        return;
-      }
-
-      if (skillsPosition < threshold && experiencePosition > threshold) {
-        setCurrentSection("experience");
-        return;
+      for (const sectionId of sectionIds) {
+        const section = document.querySelector(`#${sectionId}-section`);
+        if (section && section.getBoundingClientRect().top > threshold) {
+          setCurrentSection(sectionId);
+          return;
+        }
       }
 
-      if (experiencePosition < threshold) {
-        setCurrentSection("education");
-        return;
-      }
-      // If skills section is in view, set next section to experience
-      if (skillsPosition < window.innerHeight / 2) {
-        setCurrentSection("experience");
-      }
-
-      // If experience section is in view, could set to next section or hide arrow
-      if (experiencePosition < window.innerHeight / 2) {
-        setCurrentSection("education");
-      }
+      setCurrentSection("education");
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -50,19 +28,7 @@ const DownArrow = () => {
   const scrollToNextSection = () => {
     let targetSection;
 
-    switch (currentSection) {
-      case "skills":
-        targetSection = document.querySelector("#skills-section");
-        break;
-      case "experience":
-        targetSection = document.querySelector("#experience-section");
-        break;
-      case "education":
-        targetSection = document.querySelector("#education-section");
-        break;
-      default:
-        targetSection = document.querySelector("#skills-section");
-    }
+    targetSection = document.querySelector(`#${currentSection}-section`);
 
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: "smooth" });

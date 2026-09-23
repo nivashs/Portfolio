@@ -66,8 +66,8 @@ const FeaturedProject = ({
           className="hover:underline underline-offset-2"
         >
           <h2
-            className="my-2 w-full text-left text-4xl font-bold dark:text-light
-          sm:text-sm"
+            className="my-2 w-full text-left text-3xl font-bold dark:text-light
+          sm:text-2xl xs:text-xl"
           >
             {title}
           </h2>
@@ -111,7 +111,7 @@ const FeaturedProject = ({
   );
 };
 
-const Project = ({ title, img, link, type, github, techStack }) => {
+const Project = ({ title, summary, img, link, type, github, techStack }) => {
   return (
     <article
       className="w-full flex flex-col items-center justify-between
@@ -157,6 +157,11 @@ const Project = ({ title, img, link, type, github, techStack }) => {
             {title}
           </h2>
         </Link>
+        {summary && (
+          <p className="my-2 font-medium text-dark dark:text-light md:text-sm">
+            {summary}
+          </p>
+        )}
         <div className="flex flex-wrap gap-2 my-2">
           {techStack?.map((tech, index) => (
             <span
@@ -189,16 +194,18 @@ const projects = () => {
   return (
     <>
       <Head>
-        <title>Nivash | Projects Page</title>
-        <meta name="description" content="nivash" />
+        <title>Projects | Nivash Sudalaimani</title>
+        <meta
+          name="description"
+          content="Selected software projects by Nivash Sudalaimani spanning AI travel planning, mobile education technology, React, Node.js, GraphQL, and data automation."
+        />
       </Head>
       <TransitionEffect />
       <main className="mb-16 flex w-full flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
             text="Curiosity Drives Discovery"
-            className="mb-16
-           lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
+            className="mb-16 !text-5xl md:!text-4xl sm:mb-8 sm:!text-3xl xs:!text-2xl"
           />
           <div
             className="grid w-full grid-cols-12 gap-24 gap-y-32
@@ -206,34 +213,28 @@ const projects = () => {
           >
             <div className="col-span-12">
               <FeaturedProject
-                title="Tripster"
-                summary="A travel planning web app for explorers with integrated google maps and AI-powered personalized itinerary generation.
-                Users can search for attractions, restaurants, and activities based on their preferences and location. 
-                Integrates interactive Google Maps for visualizing day-wise iternary plans on map and for exploring attractions."
+                title="Tripster - AI Travel Planner"
+                summary="Built a travel-planning application with Google Maps, OAuth authentication, drag-and-drop itinerary editing, and third-party place and weather APIs. Integrated OpenAI to generate personalized itineraries from traveller preferences and display recommended activities and locations on an interactive map."
                 img={project0}
                 link="https://youtu.be/MqxU95xBtk8"
                 github=""
                 type="Featured Project"
                 techStack={[
-                  "React.js",
+                  "React",
                   "Node.js",
-                  "Express.js",
+                  "Express",
                   "GraphQL",
                   "MongoDB",
-                  "Google Maps API",
-                  "OAuth 2.0",
-                  "OpenAI API",
-                  "AWS",
-                  "Docker",
+                  "Google Maps",
+                  "OAuth",
+                  "OpenAI",
                 ]}
               />
             </div>
             <div className="col-span-12">
               <FeaturedProject
                 title="Reddit Memes Crawler"
-                summary="Web app that crawls, stores, and updates the top trending memes from Reddit's r/memes subreddit. 
-                Automatically generates report of memes every day and sends them via Telegram.
-                Memes are stored in a Supabase database and can be viewed sorted by upvotes, date, or number of comments."
+                summary="Built a web application that collects and stores trending posts from Reddit's r/memes community, generates a daily report for Telegram, and lets users explore saved posts by upvotes, date, and comment count."
                 img={project1}
                 link="https://reddit-memes-ui.vercel.app"
                 github="https://github.com/nivashs/reddit-memes-ui"
@@ -244,11 +245,19 @@ const projects = () => {
             <div className="col-span-6 sm:col-span-12 ">
               <Project
                 title="MindStretcher Mobile App"
+                summary="Built React Native/Expo screens and NestJS APIs for authenticated mobile workflows using Prisma and PostgreSQL. Integrated Auth0, push notifications, and CSV imports, and improved long-list performance with FlatList."
                 img={project2}
                 link="https://play.google.com/store/apps/details?id=com.mindstretcher.app&hl=en_IN"
                 github=""
                 type="Project"
-                techStack={["React Native", "Expo", "NestJS"]}
+                techStack={[
+                  "React Native",
+                  "Expo",
+                  "NestJS",
+                  "Prisma",
+                  "PostgreSQL",
+                  "Auth0",
+                ]}
               />
             </div>
             {/* <div className="col-span-6 sm:col-span-12">

@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import LiIcon from "./LiIcon";
@@ -53,7 +53,7 @@ const Experience = () => {
   });
   return (
     <div id="experience-section" className="my-64">
-      <h2 className="font-bold text-8xl mb-32 w-full text-center dark:text-light/75 md:text-6xl xs:text-4xl md:mb-16">
+      <h2 className="font-bold text-5xl mb-32 w-full text-center dark:text-light/75 md:text-4xl sm:text-3xl xs:text-2xl md:mb-16">
         Experience
       </h2>
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
@@ -64,43 +64,44 @@ const Experience = () => {
         ></motion.div>
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            position="Software Engineer Intern"
-            company="MindStretcher Education Pvt Ltd"
+            position="Software Engineer"
+            company="Mind Stretcher"
             companyLink={"https://www.mindstretcher.com/"}
-            time="2024 May - 2024 Sep"
+            time="June 2025 - Present"
             address="Singapore"
             work={[
-              "Developed and maintained MindStretcher mobile application using React Native Expo",
-              "Optimized app performance for older devices by implementing efficient rendering techniques using FlatList and reducing renders",
-              "Created a custom data management script to populate database from CSV files, improving data handling efficiency",
-              "Monitored and maintained the existing Mind Stretcher web applications",
-              "Developed new features for web and mobile platforms",
+              "Build and operate Dash, a Django platform for student enrolments, classes, payments, teacher workflows, reporting, and mobile APIs, delivering Django/HTMX workflows with server-side permissions and business rules.",
+              "Built an AI-powered registration assistant using Django, tool calling, and Server-Sent Events, with signed previews, explicit parent confirmation, and transactional validation for sensitive actions.",
+              "Built Dash Smart Search and a read-only Model Context Protocol analytics service, giving approved users permission-aware access to live class search, reports, and operational metrics.",
+              "Improved PostgreSQL reporting and Django API performance by narrowing scanned data, simplifying ORM queries, and adding targeted indexes, reducing a full academic-year metrics refresh from roughly 50 minutes to 30–60 seconds in warm runs.",
+              "Integrated Stripe, Twilio OTP, TalentLMS, Zoom, and Respond.io, including conflict-free meeting allocation, stable teacher host links, incremental synchronization, rate-limit handling, and duplicate-contact safeguards.",
+              "Made Stripe checkout, webhooks, and Celery jobs reliable under retries through payment validation, record locking, idempotent processing, and controlled retry handling.",
+              "Diagnosed timeouts in a staged 100,000-user load test and restored reliable logins by addressing worker bottlenecks, delayed replica reads, and PostgreSQL connection-pooling behavior.",
+            ]}
+          />
+          <Details
+            position="Software Engineer Intern"
+            company="Mind Stretcher"
+            companyLink={"https://www.mindstretcher.com/"}
+            time="May 2024 - September 2024"
+            address="Singapore"
+            work={[
+              "Built React Native/Expo screens and NestJS APIs for authenticated mobile workflows, using Prisma and PostgreSQL.",
+              "Integrated Auth0, push notifications, and CSV imports; improved long mobile lists with FlatList.",
             ]}
           />
           <Details
             position="Software Engineer"
             company="London Stock Exchange Group"
             companyLink={"https://www.lseg.com/"}
-            time="2020-2023 (3 years experience)"
-            address="Bangalore, India"
+            time="August 2020 - July 2023"
+            address="Bengaluru, India"
             work={[
-              "Developed and maintained multiple web applications using Angular, JavaScript and .Net",
-              "Built new features to enhance functionality and user experience",
-              "Led the deployment of multiple web applications for product releases in LSEG workspace application",
-              "Improved performance and scalability of existing applications",
-              "Collaborated with cross-functional teams to deliver high-quality software solutions",
-            ]}
-          />
-          <Details
-            position="Software Intern"
-            company="Kaashiv Infotech"
-            companyLink={"https://www.kaashivinfotech.com/"}
-            time="2019 May - 2019 July"
-            address="Chennai, India"
-            work={[
-              "Developed web applications using .NET framework and SQL Server",
-              "Created IoT-based projects using Arduino and micro-controllers",
-              "Gained hands-on experience in full-stack development",
+              "Developed and maintained financial web applications for House Views, Market Insights, and Refinitiv Securitized Derivatives using Angular 12, RxJS, NgRx, .NET Core, WCF, and MySQL.",
+              "Built reusable Angular components and services, delivering pagination, Excel/CSV import and export, and JWT-based authentication while reducing repeated implementation work by 20%.",
+              "Implemented instrument search and filtering, configurable layouts, and comparison pages with Element Framework charts and grids, helping users analyze and export financial instrument data.",
+              "Led deployments of multiple product releases to LSEG Workspace and delivered enhancements, diagnostic fixes, and patches for production applications.",
+              "Increased Jasmine test coverage by 50%, collaborated with QA to resolve defects, and mentored trainee developers through code reviews and technical guidance.",
             ]}
           />
         </ul>
