@@ -10,6 +10,7 @@ import project1 from "../../public/images/projects/reddit-memes.png";
 import project2 from "../../public/images/projects/ms-app.png";
 import { motion } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
+import ProjectPreview from "@/components/ProjectPreview";
 
 const FramerImage = motion(Image);
 
@@ -21,6 +22,7 @@ const FeaturedProject = ({
   link,
   github,
   techStack,
+  previewSrc,
 }) => {
   return (
     <article
@@ -32,24 +34,38 @@ const FeaturedProject = ({
         className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] bg-dark rounded-[2.5rem] rounded-br-3xl dark:bg-light
       xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-[1.5rem]"
       ></div>
-      <Link
-        href={link}
-        target="_blank"
-        className="w-1/2 cursor-pointer overflow-hidden rounded-lg
-        lg:w-full"
-      >
-        <FramerImage
-          src={img}
-          alt={title}
-          className="w-full h-auto"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
+      {previewSrc ? (
+        <ProjectPreview
+          title={title}
+          image={img}
+          videoSrc={previewSrc}
+          link={link}
           priority
+          className="w-1/2 lg:w-full"
           sizes="(max-width: 768px) 100vw,
-        (max-width: 1200px) 50vw,
-        50vw"
+          (max-width: 1200px) 50vw,
+          50vw"
         />
-      </Link>
+      ) : (
+        <Link
+          href={link}
+          target="_blank"
+          className="w-1/2 cursor-pointer overflow-hidden rounded-lg
+          lg:w-full"
+        >
+          <FramerImage
+            src={img}
+            alt={title}
+            className="w-full h-auto"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+            priority
+            sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          50vw"
+          />
+        </Link>
+      )}
       <div
         className="w-1/2 flex flex-col items-start justify-between pl-6
       lg:w-full lg:pl-0 lg:pt-6"
@@ -217,6 +233,7 @@ const projects = () => {
                 summary="Built a travel-planning application with Google Maps, OAuth authentication, drag-and-drop itinerary editing, and third-party place and weather APIs. Integrated OpenAI to generate personalized itineraries from traveller preferences and display recommended activities and locations on an interactive map."
                 img={project0}
                 link="https://youtu.be/MqxU95xBtk8"
+                previewSrc="/videos/tripster-preview.mp4?v=2"
                 github=""
                 type="Featured Project"
                 techStack={[
