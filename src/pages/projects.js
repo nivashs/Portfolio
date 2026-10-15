@@ -11,6 +11,7 @@ import project2 from "../../public/images/projects/ms-app.png";
 import { motion } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
 import ProjectPreview from "@/components/ProjectPreview";
+import DashRegistrationProject from "@/components/DashRegistrationProject";
 
 const FramerImage = motion(Image);
 
@@ -213,7 +214,7 @@ const projects = () => {
         <title>Projects | Nivash Sudalaimani</title>
         <meta
           name="description"
-          content="Selected software projects by Nivash Sudalaimani spanning AI travel planning, mobile education technology, React, Node.js, GraphQL, and data automation."
+          content="Selected software projects by Nivash Sudalaimani spanning AI student registration, travel planning, mobile education technology, Django, React, and data automation."
         />
       </Head>
       <TransitionEffect />
@@ -227,6 +228,9 @@ const projects = () => {
             className="grid w-full grid-cols-12 gap-24 gap-y-32
           xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0"
           >
+            <div className="col-span-12">
+              <DashRegistrationProject />
+            </div>
             <div className="col-span-12">
               <FeaturedProject
                 title="Tripster - AI Travel Planner"

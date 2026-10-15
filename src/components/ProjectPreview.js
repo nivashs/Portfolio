@@ -13,6 +13,8 @@ const ProjectPreview = ({
   image,
   videoSrc,
   link,
+  linkLabel,
+  previewLabel = "12s Preview",
   priority = false,
   sizes,
   className = "",
@@ -95,7 +97,7 @@ const ProjectPreview = ({
       href={link}
       target="_blank"
       rel="noreferrer"
-      aria-label={`Watch the full ${title} demo`}
+      aria-label={linkLabel || `Watch the full ${title} demo`}
       className={`block cursor-pointer overflow-hidden rounded-lg ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={stopPreview}
@@ -143,7 +145,7 @@ const ProjectPreview = ({
         <span
           className="pointer-events-none absolute right-3 top-3 rounded-full bg-dark/80 px-3 py-1 text-xs font-semibold tracking-wide text-light backdrop-blur-sm motion-reduce:hidden dark:bg-light/90 dark:text-dark"
         >
-          12s Preview
+          {previewLabel}
         </span>
       </motion.div>
     </Link>
